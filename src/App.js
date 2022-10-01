@@ -1,43 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-import Layout from './utils/components/cusHeader';
+// import Layout from './utils/components/cusHeader';
+import Header from './utils/components/cusHeader';
+import SubHeader from './utils/components/subHeader';
+import Data from './utils/Data'
+import { useState } from 'react';
+
 
 
 function App() {
-  let cars= [
-    {Name: 'Car',
-    Model: 'Suzuki Cultus',
-    Color: 'Blue',
-    PriceRange: 'PKR 27-32 lacs'
-  },
-    {Name: 'Car',
-    Model: 'United Bravo',
-    Color: 'Ash grey',
-    PriceRange: 'PKR 15.9-16 lacs'
-  },
-    {Name: 'Car',
-    Model: 'Suzuki Alto',
-    Color: 'Dark Maroon',
-    PriceRange: 'PKR 17-22 lacs'
-  },
-    {Name: 'Car',
-    Model: 'Proton Saga',
-    Color: 'Black',
-    PriceRange: 'PKR 28-31.5 lacs'
-  },
-  {
+  const [listData, setListData] = useState(Data);
 
-  },
-    
-  ]
   return (
-    
-      <Layout onClick= {"onClickHandler"}>
-        <div className='Item-list'>
-           <input></input>
-        </div>
-        
-      </Layout>
+
+    <div className='Layout'>
+      <Header />
+      <SubHeader />
+      <div className='Body'>
+
+      </div>
+
+    </div>
   );
 }
 

@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import { useState } from 'react';
 
-export default function SelectOptions() {
+export default function SelectOptions({req}) {
     const [category, setCategory] = useState('');
 
     const SelectChangeHandler = (event) => {
@@ -30,7 +30,6 @@ export default function SelectOptions() {
                 <MenuItem value="bicycles">Bicycles</MenuItem>
                 <MenuItem value="autos">Autos</MenuItem>
             </Select>
-            <FormHelperText>Required</FormHelperText>
         </FormControl>
     )
 }

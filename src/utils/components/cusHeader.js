@@ -2,35 +2,31 @@ import SelectOptions from "./selectOptions";
 import TextField from "@mui/material/TextField";
 import PageviewIcon from "@mui/icons-material/Pageview";
 
-function Layout(props) {
+function Header(props) {
     // console.log(props)
     // [onClick, children]= props
     return (
-        <div className="Layout">
-            <div className="Header-view">
-                <img className="Main-logo"
-                    src="https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/12/jewelry-logo.jpg"
-                    alt='link broken'
-                />
+        <div className="Header-view" >
+            <img className="Main-logo"
+                src='https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/12/jewelry-logo.jpg'
+                alt='link broken'
+            />
+            <div style={{ flex: 1 }}>
                 <SelectOptions />
-                <div
-                    className="Text-field-div">
-                    <TextField className="Text-field" />
-                    <div
-                        className="Icon-div"
-                        onClick={props.onClick}
-                    >
-                        <PageviewIcon
-
-                            sx={{ color: "blue", fontSize: 85 }}
-                            className="Search-button"
-                        />
-                    </div>
-                </div>
             </div>
-            <div className="Body-view">{props.children}</div>
+            <div
+                style={{ flex: 3 }}
+                className="Text-field-div">
+                <TextField sx={{
+                    border: 'none'
+                }} className="Text-field" />
+                <PageviewIcon
+                    sx={{ color: "blue", fontSize: 50, }}
+                    className="Search-button"
+                />
+            </div>
         </div>
     )
 }
-export default Layout;
+export default Header;
 // sx= {{height: '30px', width: 30}}111
