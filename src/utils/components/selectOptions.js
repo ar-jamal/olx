@@ -3,7 +3,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
+// import FormHelperText from '@mui/material/FormHelperText';
 import { useState } from 'react';
 
 export default function SelectOptions({req}) {
@@ -25,7 +25,13 @@ export default function SelectOptions({req}) {
                 <MenuItem value="">
                     <em>None</em>
                 </MenuItem>
-                <MenuItem value="cars">Cars</MenuItem>
+                <MenuItem 
+                value="cars"
+                onChange= {(e) => {
+                    
+
+                }}
+                >Cars</MenuItem>
                 <MenuItem value="motorBikes">Motorbikes</MenuItem>
                 <MenuItem value="bicycles">Bicycles</MenuItem>
                 <MenuItem value="autos">Autos</MenuItem>
