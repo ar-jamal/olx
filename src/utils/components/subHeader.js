@@ -2,42 +2,51 @@ import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
 import Avatar from "@mui/material/Avatar";
 import Data from "../../App"
-
-export default function SubHeader() {
-    const [filled, setfilled] = useState('outlined')
-    const [listData, setListData] = useState(Data)
-    const onChipHandler=(val) => {
-        console.log(val)
-        // setfilled(null)
-
+const myFilters = [
+    {
+        label: "men's clothing",
+        alt: "M",
+        id: 1,
+        img: require("../pics/logo.png")
+    },
+    {
+        label: "jewelery",
+        alt: "J",
+        id: 2,
+        img: require("../pics/logo.png")
+    },
+    {
+        label: "electronics",
+        alt: "E",
+        id: 3,
+        img: require("../pics/logo.png")
+    },
+    {
+        label: "women's clothing",
+        alt: "W",
+        id: 4,
+        img: require("../pics/logo.png")
     }
-    
+]
+export default function SubHeader({ filters, setFilters }) {
     return (
         <div className='Sub-header'>
+            {
+                myFilters.map((filter, ind) => {
 
-            <Chip className= "Chip-unit"
-                // onClick= {}
-                avatar={<Avatar alt="P" src="./utils/pics/logo" />}
-                label="men's clothing"
-                variant={filled}
-                // onClick= {() => onChipHandler.bind(this, e)}
-                
-            />
-            <Chip className= "Chip-unit"
-                avatar={<Avatar alt="C" src="./utils/pics/logo" />}
-                label="jewelery"
-                variant={filled}
-            />
-            <Chip className= "Chip-unit"
-                avatar={<Avatar alt="B" src="./utils/pics/logo" />}
-                label="electronics"
-                variant={filled}
-            />
-            <Chip className= "Chip-unit"
-                avatar={<Avatar alt="CA" src="./utils/pics/logo" />}
-                label="women's clothing"
-                variant={filled}
-            />
+                    const active = filters.includes(filter.label)
+
+                    return <Chip key={ind} className="Chip-unit"
+                        avatar={<Avatar alt={filter.alt} src={filter.img} />}
+                        label={filter.label}
+                        variant={!active ? 'outlined' : ''}
+                        onClick={(e) => {
+                            if (active) setFilters([...filters.filter(item => item !== filter.label)])
+                            else setFilters([...filters, filter.label])
+                        }}
+                    />
+                })
+            }
         </div>
     )
 

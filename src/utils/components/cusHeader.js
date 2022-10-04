@@ -12,14 +12,17 @@ function Header(props) {
                 alt='link broken'
             />
             <div style={{ flex: 1 }}>
-                <SelectOptions />
+                <SelectOptions 
+                onChange= {props.onChange}
+                value= {props.value} />
             </div>
             <div
                 style={{ flex: 3 }}
                 className="Text-field-div">
                 <TextField sx={{
                     border: 'none'
-                }} className="Text-field" />
+                }} className="Text-field"
+                 />
                 <PageviewIcon
                     sx={{ color: "blue", fontSize: 50, }}
                     className="Search-button"

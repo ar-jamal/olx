@@ -5,13 +5,14 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 // import FormHelperText from '@mui/material/FormHelperText';
 import { useState } from 'react';
+import Data from "../Data"
 
-export default function SelectOptions({req}) {
-    const [category, setCategory] = useState('');
 
-    const SelectChangeHandler = (event) => {
-        setCategory(event.target.value)
-    }
+export default function SelectOptions(props) {
+    const [listData, setListData] = useState(Data)
+    const [filterList, setFilterList] = useState([])
+    const [selectedCategory, setSelectedCategory] = useState()
+
     return (
         <FormControl required className='Selection'>
             <InputLabel id='demo-simple-select-required-label'>Category</InputLabel>
@@ -19,22 +20,16 @@ export default function SelectOptions({req}) {
                 labelId='demo-simple-select-required-label'
                 id='demo-simple-select-required'
                 label='category *'
-                onChange={SelectChangeHandler}
-                value={category}
+                onChange={props.onChange}
+                value={props.value}
             >
                 <MenuItem value="">
                     <em>None</em>
                 </MenuItem>
-                <MenuItem 
-                value="cars"
-                onChange= {(e) => {
-                    
-
-                }}
-                >Cars</MenuItem>
-                <MenuItem value="motorBikes">Motorbikes</MenuItem>
-                <MenuItem value="bicycles">Bicycles</MenuItem>
-                <MenuItem value="autos">Autos</MenuItem>
+                <MenuItem value="men's clothing">mens clothing</MenuItem>
+                <MenuItem value="jewelery">jewelery</MenuItem>
+                <MenuItem value="electronics">electronics</MenuItem>
+                <MenuItem value="women's clothing">womens clothing</MenuItem>
             </Select>
         </FormControl>
     )
