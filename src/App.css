@@ -75,10 +75,6 @@
   /* background-color: green; */
 } 
 
-.bglight {
-
-}
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

@@ -3,8 +3,9 @@ import TextField from "@mui/material/TextField";
 import PageviewIcon from "@mui/icons-material/Pageview";
 
 function Header(props) {
-    // console.log(props)
-    // [onClick, children]= props
+        // console.log(props)
+        // [onClick, children]= props
+    
     return (
         <div className="Header-view" >
             <img className="Main-logo"
@@ -19,7 +20,9 @@ function Header(props) {
             <div
                 style={{ flex: 3 }}
                 className="Text-field-div">
-                <TextField sx={{
+                <TextField 
+                onChange={props.onChangeInput}
+                sx={{
                     border: 'none'
                 }} className="Text-field"
                  />

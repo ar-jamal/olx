@@ -35,14 +35,15 @@ export default function SubHeader({ filters, setFilters }) {
                 myFilters.map((filter, ind) => {
 
                     const active = filters.includes(filter.label)
-
                     return <Chip key={ind} className="Chip-unit"
                         avatar={<Avatar alt={filter.alt} src={filter.img} />}
                         label={filter.label}
                         variant={!active ? 'outlined' : ''}
+                        color= 'success'
                         onClick={(e) => {
                             if (active) setFilters([...filters.filter(item => item !== filter.label)])
                             else setFilters([...filters, filter.label])
+                            console.log(filters)
                         }}
                     />
                 })
